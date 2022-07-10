@@ -18,25 +18,29 @@ const refs = {
   inputEl: document.querySelector("input"),
   createBtn: document.querySelector("[data-create]"),
   destroyBtn: document.querySelector("[data-destroy]"),
+  allBoxes: document.querySelector("#boxes"),
 };
 // console.log(refs.inputEl);
 // console.log(refs.createBtn);
 // console.log(refs.destroyBtn);
+console.log(refs.allBoxes);
 
 // Создаём номинальный размер коробки для дальнейших правок
 let boxSize = 20;
-// Создаём "ёмкость" для всех коробок, которые мы создадим
-const allBoxes = document.createDocumentFragment;
-
+// Создаём слушатель событий для кнопки "создать коробку"
 refs.createBtn.addEventListener("click", onClickCreate);
 
 function onClickCreate(event) {
   const value = refs.inputEl.value;
   createBoxes(value);
-  console.dir(value);
+  // console.dir(value);
 }
 
 function createBoxes(amount) {
+  // Создаём "ёмкость" для всех коробок, которые мы создадим
+  // console.dir(box);
+  const box = document.createDocumentFragment();
+
   for (let i = 0; i < amount; i += 1) {
     const div = document.createElement("div");
     boxSize += 10;
@@ -49,7 +53,11 @@ function createBoxes(amount) {
 
     // console.log(div.style.width);
     // console.log(div.style.height);
+    box.append(div);
   }
+  console.log(box);
+  // Добавляем все коробки в div boxes
+  refs.allBoxes.append(box);
 }
 
 // const refs = {
