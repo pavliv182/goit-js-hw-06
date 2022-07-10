@@ -1,3 +1,6 @@
+// ССылка на видео по решению этой задачи:
+// https://www.youtube.com/watch?v=dIOsuTYmor8
+
 // 1. Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция. При нажатии на кнопку Очистить, коллекция элементов очищается.
 
 // 2. Создай функцию createBoxes(amount), которая принимает один параметр - число. Функция создает столько <div>, сколько указано в amount и добавляет их в div#boxes.
@@ -30,8 +33,10 @@ let boxSize = 20;
 // Создаём слушатель событий для кнопки "создать коробку"
 refs.createBtn.addEventListener("click", onClickCreate);
 
-function onClickCreate(event) {
+function onClickCreate() {
   const value = refs.inputEl.value;
+  refs.allBoxes.innerHTML = "";
+  boxSize = 20;
   createBoxes(value);
   // console.dir(value);
 }
@@ -60,6 +65,12 @@ function createBoxes(amount) {
   refs.allBoxes.append(box);
 }
 
+refs.destroyBtn.addEventListener("click", onClickDestroy);
+
+function onClickDestroy() {
+  refs.allBoxes.innerHTML = "";
+  refs.inputEl.value = "";
+}
 // const refs = {
 //   boxesEl: document.querySelector('#boxes'),
 //   createBtn: document.querySelector('button[data-create]'),
