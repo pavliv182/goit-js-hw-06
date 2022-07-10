@@ -1,6 +1,6 @@
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
 // function getRandomHexColor() {
 //   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 // }
@@ -19,7 +19,21 @@ function getRandomHexColor() {
 // }
 
 // 3. Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
+const refs = {
+  inputEl: document.querySelector("input"),
+  createBtn: document.querySelector("[data-create]"),
+  destroyBtn: document.querySelector("[data-destroy]"),
+};
+// console.log(refs.inputEl);
+// console.log(refs.createBtn);
+// console.log(refs.destroyBtn);
 
+refs.createBtn.addEventListener("click", onClickCreate);
+
+function onClickCreate(event) {
+  const value = refs.inputEl.value;
+  console.dir(value);
+}
 // const refs = {
 //   boxesEl: document.querySelector('#boxes'),
 //   createBtn: document.querySelector('button[data-create]'),
