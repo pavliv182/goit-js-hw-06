@@ -12,11 +12,6 @@
 
 // 3. Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
 const refs = {
   inputEl: document.querySelector("input"),
   createBtn: document.querySelector("[data-create]"),
@@ -40,6 +35,11 @@ function onClickCreate() {
   createBoxes(value);
   // console.dir(value);
 }
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
 
 function createBoxes(amount) {
   // Создаём "ёмкость" для всех коробок, которые мы создадим
@@ -60,7 +60,7 @@ function createBoxes(amount) {
     // console.log(div.style.height);
     box.append(div);
   }
-  console.log(box);
+  // console.log(box);
   // Добавляем все коробки в div boxes
   refs.allBoxes.append(box);
 }
@@ -71,37 +71,3 @@ function onClickDestroy() {
   refs.allBoxes.innerHTML = "";
   refs.inputEl.value = "";
 }
-// const refs = {
-//   boxesEl: document.querySelector('#boxes'),
-//   createBtn: document.querySelector('button[data-create]'),
-//   destroyBtn: document.querySelector('button[data-destroy]'),
-// };
-
-// refs.createBtn.addEventListener('click', createBoxes);
-// refs.destroyBtn.addEventListener('click', destroyBoxes);
-
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215)
-//     .toString(16)
-//     .padStart(6, 0)}`;
-// }
-
-// function createBoxes(amount) {
-//   destroyBoxes();
-
-//   amount = document.querySelector('input[type="number"]').value;
-//   let injectHTML = '';
-//   let boxSize = 30;
-
-//   for (let i = 0; i < amount; i += 1) {
-//     injectHTML += (
-//       <div style="width: ${ boxSize } px; height: ${ boxSize } px; margin:10px; background-color: ${ getRandomHexColor ( ) }"></div>
-//     );
-//     boxSize += 10;
-//   }
-//   boxesEl.insertAdjacentHTML('beforeend', injectHTML);
-// }
-
-// function destroyBoxes() {
-//   boxesEl.innerHTML = '';
-// }
